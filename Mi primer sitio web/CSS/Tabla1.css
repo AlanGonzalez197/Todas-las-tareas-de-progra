@@ -1,0 +1,81 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa al menos toda la altura de la ventana */
+    margin: 0;
+    background-color: #f0f0f0; /* Color de fondo suave */
+    font-family: sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    /* Definimos 10 columnas de igual tamaño (1fr) */
+    grid-template-columns: repeat(10, 1fr);
+    /* Definimos 7 filas de igual tamaño (1fr) */
+    grid-template-rows: repeat(7, 1fr);
+    width: 90vw; /* Ancho de la cuadrícula, ajusta según necesites */
+    max-width: 800px; /* Ancho máximo para que no se extienda demasiado */
+    aspect-ratio: 10 / 7; /* Mantiene la proporción 10 columnas por 7 filas */
+    border: 2px solid black; /* Borde exterior de la cuadrícula */
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Sombra para darle profundidad */
+}
+
+.grid-item {
+    border: 1px solid black; /* Borde para cada celda/bloque */
+    background-color: white; /* Color de fondo predeterminado para celdas vacías */
+    display: flex; /* Para centrar texto si lo hubiera, aunque aquí no hay */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Colores de los bloques */
+.black { background-color: black; }
+.green { background-color: #7EC850; } /* Un verde similar */
+.yellow { background-color: #FFDE00; } /* Un amarillo similar */
+.dark-blue { background-color: #3B5998; } /* Un azul oscuro similar */
+.light-blue { background-color: #00BFFF; } /* Un azul cielo similar */
+.dark-blue-large { background-color: #00008B; } /* Un azul marino/más oscuro */
+.purple { background-color: #8A2BE2; } /* Un púrpura similar */
+.red { background-color: #FF0000; } /* Rojo puro */
+.orange { background-color: #FFA500; } /* Naranja puro */
+.orange-large { background-color: #FF8C00; } /* Naranja más oscuro que el puro */
+
+/* Celdas que se extienden (span) */
+/* Columnas */
+.col-span-1 { grid-column: span 1; }
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+.col-span-5 { grid-column: span 5; }
+/* Filas */
+.row-span-1 { grid-row: span 1; }
+.row-span-2 { grid-row: span 2; }
+.row-span-3 { grid-row: span 3; }
+.row-span-4 { grid-row: span 4; }
+
+/* Para los bloques negros superiores, ajustamos su posición */
+/* Puedes ajustar esto según la exactitud de tu imagen original */
+.grid-item.black:nth-child(1) { grid-column: 1 / span 3; } /* Primer bloque negro */
+.grid-item.black:nth-child(2) { grid-column: 5 / span 3; } /* Segundo bloque negro */
+.grid-item.black:nth-child(3) { grid-column: 9 / span 2; } /* Tercer bloque negro */
+
+/* Posicionamiento específico para algunos elementos que se extienden y deben ir en una posición concreta */
+.yellow { grid-row: 3 / span 2; grid-column: 1 / span 1; } /* Amarillo se extiende 2 filas, comienza en la columna 1, fila 3 */
+.dark-blue { grid-row: 3 / span 1; grid-column: 3 / span 2; } /* Azul oscuro en fila 3, col 3 */
+.light-blue { grid-row: 4 / span 1; grid-column: 2 / span 3; } /* Azul claro en fila 4, col 2 */
+.dark-blue-large { grid-row: 4 / span 1; grid-column: 5 / span 5; } /* Azul oscuro grande en fila 4, col 5 */
+.purple { grid-row: 3 / span 4; grid-column: 10 / span 1; } /* Púrpura se extiende 4 filas, comienza en la columna 10, fila 3 */
+.red:nth-child(33) { grid-row: 5 / span 1; grid-column: 2 / span 2; } /* Primer rojo de la fila 5 */
+.red:nth-child(36) { grid-row: 5 / span 1; grid-column: 9 / span 2; } /* Segundo rojo de la fila 5 */
+.orange:nth-child(37) { grid-row: 6 / span 1; grid-column: 1 / span 2; } /* Naranja de la fila 6 */
+.red:nth-child(38) { grid-row: 6 / span 1; grid-column: 3 / span 1; } /* Rojo de la fila 6 */
+.orange-large { grid-row: 6 / span 2; grid-column: 4 / span 4; } /* Naranja grande se extiende 2 filas, col 4 */
+.red:nth-child(41) { grid-row: 6 / span 1; grid-column: 9 / span 2; } /* Último rojo de la fila 6 */
+
+/* Ajuste fino para los espacios para que no "coman" espacio de los elementos que se extienden */
+/* Es importante que los "empty" no colisionen con los "span" */
+/* Si un elemento ocupa 3 columnas, los siguientes empty deben empezar después de la 3era columna */
+/* Este es el aspecto más complejo de replicar una imagen pixel a pixel con CSS Grid */
+/* Lo mejor es hacer un mapeo de la imagen y colocar cada elemento con grid-column y grid-row */
+/* Por ejemplo, en la fila 2, el green está en col 7 y se extiende 2. Los 'empty' anteriores llenan el espacio 1 al 6. */
