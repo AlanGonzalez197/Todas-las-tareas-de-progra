@@ -1,0 +1,97 @@
+/* Estilos generales del body para centrar todo */
+body {
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: flex-start; /* Alinea al inicio del eje principal */
+    align-items: center; /* Centra horizontalmente los elementos */
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    margin-top: 40px;
+    color: #333;
+    text-align: center;
+    width: 100%;
+}
+
+/* Estilos para la tabla de calificaciones */
+table {
+    width: 80%;
+    margin: 20px auto; /* Centra la tabla y le da espacio */
+    border-collapse: collapse; /* Elimina el espacio entre celdas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+caption {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Color de fondo para filas pares */
+}
+
+tr:hover {
+    background-color: #ddd; /* Efecto al pasar el ratón */
+}
+
+/* --------------------------------------------------- */
+/* Estilos para la CUADRÍCULA DE PIXEL ART (la segunda tabla) */
+/* --------------------------------------------------- */
+
+.pixel-art-grid {
+    width: 90vw; /* Ancho de la cuadrícula, ajusta según necesites */
+    max-width: 800px; /* Ancho máximo para no distorsionarse */
+    border-collapse: collapse; /* Para que los bordes se unan */
+    border: 2px solid black; /* Borde exterior de la cuadrícula */
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Sombra para darle profundidad */
+    margin: 50px auto; /* Centra la cuadrícula y le da espacio */
+    table-layout: fixed; /* Esto es CRUCIAL para que las columnas tengan el mismo ancho */
+}
+
+.pixel-art-grid tr {
+    /* Calculamos la altura de cada fila para mantener la proporción de 7 filas */
+    /* La altura se basará en el max-width para que sea responsive */
+    height: calc( (800px * 0.7) / 7 ); /* 0.7 porque 7/10 = 0.7, para mantener la proporción 10x7 */
+    /* Puedes ajustar 800px al max-width que desees para tu cuadrícula */
+}
+
+.pixel-art-grid td {
+    border: 1px solid black; /* Borde para cada celda/bloque */
+    background-color: white; /* Color de fondo predeterminado para celdas vacías */
+    padding: 0; /* Quitar padding predeterminado de td */
+    /* No necesitamos width aquí porque table-layout: fixed y el número de celdas
+       en cada fila con colspan harán que el navegador las distribuya uniformemente. */
+}
+
+/* Colores de los bloques */
+.pixel-art-grid .black { background-color: black; }
+.pixel-art-grid .green { background-color: #7EC850; } /* Un verde similar */
+.pixel-art-grid .yellow { background-color: #FFDE00; } /* Un amarillo similar */
+.pixel-art-grid .dark-blue { background-color: #3B5998; } /* Un azul oscuro similar */
+.pixel-art-grid .light-blue { background-color: #00BFFF; } /* Un azul cielo similar */
+.pixel-art-grid .dark-blue-large { background-color: #00008B; } /* Un azul marino/más oscuro */
+.pixel-art-grid .purple { background-color: #8A2BE2; } /* Un púrpura similar */
+.pixel-art-grid .red { background-color: #FF0000; } /* Rojo puro */
+.pixel-art-grid .orange { background-color: #FFA500; } /* Naranja puro */
+.pixel-art-grid .orange-large { background-color: #FF8C00; } /* Naranja más oscuro que el puro */
+
+.pixel-art-grid .empty {
+    background-color: white; /* Asegura que las celdas vacías sean blancas */
+}
